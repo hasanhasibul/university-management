@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/successes/.98ae159551ae7359fde407fb2567f9fce0573f88-audit.json",
+    "files": [
+        {
+            "date": 1685989993500,
+            "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/successes/phu-2023-06-06-00-error.log",
+            "hash": "54bbb8d65ed0271e89a222970eb98a81ebfe6d9a93b5037d754d41ab08264132"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import app from './app'
 import config from './config'
+import { errorlogger, logger } from './shared/logger'
 // const port = 5000
 // const pass = "aWCdTuSxebcaBER2"
 // const user = "university-admin"
@@ -9,12 +10,12 @@ import config from './config'
 const dbConnections = async () => {
   try {
     await mongoose.connect(config.dbUrl as string)
-    console.log('db connection success')
+    logger.info('db connection success')
     app.listen(config.port, () => {
-      console.log(`Application listening on port ${config.port}`)
+      logger.info(`Application listening on port ${config.port}`)
     })
   } catch (error) {
-    console.log(error)
+    errorlogger.error('Failed to connect database', error)
   }
 }
 
