@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import path from 'path'
 import { createLogger, format, transports } from 'winston'
 import DailyRotateFile from 'winston-daily-rotate-file'
@@ -44,7 +45,7 @@ const errorlogger = createLogger({
         process.cwd(),
         'logs',
         'winston',
-        'successes',
+        'errors',
         'phu-%DATE%-error.log'
       ),
       datePattern: 'YYYY-DD-MM-HH',
