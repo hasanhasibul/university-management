@@ -1,8 +1,13 @@
 import { StatusCodes } from 'http-status-codes'
 import ApiError from '../../../errors/ApiError'
-import { academicSemesterCode } from './academicSemester.constant'
+import {
+  SemestersearchFilelds,
+  academicSemesterCode,
+} from './academicSemester.constant'
 import { academicSemesterInterface } from './academicSemester.interface'
 import academicSemesterModel from './academicSemester.modal'
+import { paginationHelper, searchAndFilterHelper } from '../../../helpers'
+import { QueryOptions } from 'mongoose'
 
 export const createAcademicSemesterService = async (
   reqbody: academicSemesterInterface
@@ -15,4 +20,22 @@ export const createAcademicSemesterService = async (
     throw Error('fail to create academic semester')
   }
   return academicSemester
+}
+
+export const getAllAcademicSemisterServices = async (params: QueryOptions) => {
+  const { limit, skip, sort } = paginationHelper(params)
+  const { searchCondision } = searchAndFilterHelper(
+    params,
+    SemestersearchFilelds
+  )
+  const allSemester = await academicSemesterModel
+    .find(searchCondision)
+    .skip(skip)
+    .limit(limit)
+    .sort(sort)
+  if (!allSemester) {
+    throw Error('Fail to get semester')
+  }
+
+  return allSemester
 }

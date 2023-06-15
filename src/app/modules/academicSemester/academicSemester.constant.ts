@@ -24,3 +24,5 @@ export const academicSemesterCode: {
   Summer: '02',
   Fall: '03',
 }
+
+export const SemestersearchFilelds = ['title', 'code']
