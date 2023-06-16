@@ -1,4 +1,6 @@
 import { QueryOptions } from 'mongoose'
+import pick from './shared/pick'
+import { possibleSemesterFields } from './app/modules/academicSemester/academicSemester.constant'
 
 export const paginationHelper = (params: QueryOptions) => {
   const page = Number(params.page) || 1
@@ -23,17 +25,31 @@ export const searchAndFilterHelper = (
   params: QueryOptions,
   searchFilelds: string[]
 ) => {
-  const searchKeywords = params?.keywords
-  const searchCondision = {
-    $or: searchFilelds?.map((item: string) => {
-      return {
-        [item]: {
-          $regex: searchKeywords,
-          $options: 'i',
-        },
-      }
-    }),
+  const filters = pick(params, possibleSemesterFields)
+  const { keywords, ...filterOptions } = filters
+  const searchConditions = []
+  if (keywords) {
+    searchConditions.push({
+      $or: searchFilelds?.map((item: string) => {
+        return {
+          [item]: {
+            $regex: keywords,
+            $options: 'i',
+          },
+        }
+      }),
+    })
   }
 
-  return { searchCondision }
+  if (Object?.keys(filterOptions)?.length > 0) {
+    searchConditions.push({
+      $and: Object.entries(filterOptions).map(([key, value]) => {
+        return {
+          [key]: value,
+        }
+      }),
+    })
+  }
+
+  return { searchConditions }
 }

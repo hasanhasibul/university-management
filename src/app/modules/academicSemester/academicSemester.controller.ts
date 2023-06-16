@@ -1,7 +1,9 @@
 import { RequestHandler } from 'express'
 import {
   createAcademicSemesterService,
+  getAcademicSemisterDetailsService,
   getAllAcademicSemisterServices,
+  updateAcademicSemisterService,
 } from './academicSemester.service'
 import { StatusCodes } from 'http-status-codes'
 
@@ -31,7 +33,34 @@ const getAllAcademicSemister: RequestHandler = async (req, res, next) => {
     next(error)
   }
 }
+
+const getAcademicSemisterDetails: RequestHandler = async (req, res, next) => {
+  try {
+    const response = await getAcademicSemisterDetailsService(req?.params)
+    res.status(StatusCodes.OK).json({
+      success: true,
+      data: response,
+      message: 'Academice details fetch success',
+    })
+  } catch (error) {
+    next(error)
+  }
+}
+const updateAcademicSemister: RequestHandler = async (req, res, next) => {
+  try {
+    const response = await updateAcademicSemisterService(req?.params, req?.body)
+    res.status(StatusCodes.OK).json({
+      success: true,
+      data: response,
+      message: 'Academice semester update  success',
+    })
+  } catch (error) {
+    next(error)
+  }
+}
 export const academicSemesterController = {
   createAcademicSemester,
   getAllAcademicSemister,
+  getAcademicSemisterDetails,
+  updateAcademicSemister,
 }

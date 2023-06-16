@@ -26,3 +26,4 @@ export const academicSemesterCode: {
 }
 
 export const SemestersearchFilelds = ['title', 'code']
+export const possibleSemesterFields = ['title', 'code', 'year', 'keywords']

@@ -59,6 +59,26 @@
             "date": 1686848618329,
             "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/errors/phu-2023-15-06-23-error.log",
             "hash": "7c0d9930e1e3b297e975dd6048956e304c3fec9c5104d04f6ebcd03d9e6d1108"
+        },
+        {
+            "date": 1686852040535,
+            "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/errors/phu-2023-16-06-00-error.log",
+            "hash": "68a3bac8c48c75299695d03095c6c80212dc4068edd08a8d6fe43d393dc7eebd"
+        },
+        {
+            "date": 1686857826954,
+            "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/errors/phu-2023-16-06-01-error.log",
+            "hash": "f8c4fe34a60d22f1d4c7692e95606feeb102726fffb6ba0869d55cc2abc50656"
+        },
+        {
+            "date": 1686859207600,
+            "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/errors/phu-2023-16-06-02-error.log",
+            "hash": "b51a38a2d1a93b7dd4285675520cef167a0adff681a268b62342ea5281f10100"
+        },
+        {
+            "date": 1686863782539,
+            "name": "/home/hasib/Documents/practice/next-level-project/university-management/logs/winston/errors/phu-2023-16-06-03-error.log",
+            "hash": "a5935088289f996ebe6fd846c4dfa9126c4b2bbf55a32b1c2fb139c73b8ba7ec"
         }
     ],
     "hashType": "sha256"
